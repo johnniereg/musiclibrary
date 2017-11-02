@@ -95,8 +95,15 @@ var printPlaylist = function (playlistId) {
 // adds an existing track to an existing playlist
 
 var addTrackToPlaylist = function (trackId, playlistId) {
+  var theTrackID = trackId;
+  var thePlayList = playlistId;
+  var playlists = library["playlists"];
+  var specificPlayList = playlists[thePlayList];
+  specificPlayList["tracks"].push(theTrackID);
+}
 
-};
+// THIS ONE WORKS
+// addTrackToPlaylist("t02", "p02");
 
 
 // generates a unique id
@@ -110,15 +117,35 @@ var uid = function() {
 // adds a track to the library
 
 var addTrack = function (name, artist, album) {
+  var theLibrary = library["tracks"];
+  var trackID = uid();
+  var trackInfo = {};
+  trackInfo["id"] = trackID;
+  trackInfo["name"] = name;
+  trackInfo["artist"] = artist;
+  trackInfo["album"] = album;
+  theLibrary[trackID] = trackInfo;
+};
 
-}
-
+addTrack ("song name", "artist name", "album name");
+addTrack ("song name2", "artist name2", "album name2");
+console.log(library["playlists"]);
 
 // adds a playlist to the library
 
 var addPlaylist = function (name) {
+  var thePlaylists = library["playlists"];
+  var playID = uid();
+  var playListInfo = {};
+  playListInfo["id"] = playID;
+  playListInfo["name"] = name;
+  playListInfo["tracks"] = [];
+  thePlaylists[playID] = playListInfo;
+};
 
-}
+addPlaylist("test play list");
+
+console.log(library["playlists"]);
 
 
 // STRETCH:
