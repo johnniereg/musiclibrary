@@ -127,30 +127,23 @@ var printSearchResults = function(query) {
   var theSearch = query.toLowerCase();
   var allTracks = library.tracks;
   var results = [];
-
   // Searches the library and puts the track IDs into an array if found.
-
   for (var tracks in allTracks) {
     var track = allTracks[tracks];
     if (track.name.toLowerCase().search(theSearch) >= 0) {
-      // console.log("it's in the name");
       results.push(track.id);
     }
     else if (track.artist.toLowerCase().search(theSearch) >= 0) {
-      // console.log("it's in the artist");
       results.push(track.id);
     }
     else if (track.album.toLowerCase().search(theSearch) >= 0) {
-      // console.log("it's in the album");
       results.push(track.id);
     }
     else {
       continue;
     }
   }
-
   // Print something for each item in the array, or tells you it found nothing.
-
   if (results.length > 0) {
     results.forEach(function (trackid, index) {
       var theTrackFound = allTracks[trackid];
@@ -160,5 +153,4 @@ var printSearchResults = function(query) {
   else {
     console.log("We didn't find anything.");
   }
-
 };
