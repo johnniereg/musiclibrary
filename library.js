@@ -38,10 +38,6 @@ var printPlaylists = function (musicLibrary) {
   }
 };
 
-// THIS ONE WORKS
-// Uncomment lower line to test
-// printPlaylists(library);
-
 // // prints a list of all tracks, in the form:
 // // t01: Code Monkey by Jonathan Coulton (Thing a Week Three)
 // // t02: Model View Controller by James Dempsey (WWDC 2003)
@@ -54,13 +50,6 @@ var printTracks = function (musicLibrary) {
     console.log(tracks["id"] + ": " + tracks["name"] + " by " + tracks["artist"] + " (" + tracks["album"] + ")");
   }
 };
-
-// THIS ONE WORKS
-// Uncomment lower line to test
-// printTracks(library);
-
-
-
 
 // prints a list of tracks for a given playlist, in the form:
 // p01: Coding Music - 2 tracks
@@ -86,12 +75,6 @@ var printPlaylist = function (playlistId) {
   }
 };
 
-// THIS ONE WORK
-// Uncomment lower lines to test
-// printPlaylist ("p01");
-// printPlaylist ("p02");
-
-
 // adds an existing track to an existing playlist
 
 var addTrackToPlaylist = function (trackId, playlistId) {
@@ -100,19 +83,14 @@ var addTrackToPlaylist = function (trackId, playlistId) {
   var playlists = library["playlists"];
   var specificPlayList = playlists[thePlayList];
   specificPlayList["tracks"].push(theTrackID);
-}
-
-// THIS ONE WORKS
-// addTrackToPlaylist("t02", "p02");
-
+};
 
 // generates a unique id
 // (use this for addTrack and addPlaylist)
 
 var uid = function() {
   return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
-}
-
+};
 
 // adds a track to the library
 
@@ -127,10 +105,6 @@ var addTrack = function (name, artist, album) {
   theLibrary[trackID] = trackInfo;
 };
 
-addTrack ("song name", "artist name", "album name");
-addTrack ("song name2", "artist name2", "album name2");
-console.log(library["playlists"]);
-
 // adds a playlist to the library
 
 var addPlaylist = function (name) {
@@ -143,11 +117,6 @@ var addPlaylist = function (name) {
   thePlaylists[playID] = playListInfo;
 };
 
-addPlaylist("test play list");
-
-console.log(library["playlists"]);
-
-
 // STRETCH:
 // given a query string string, prints a list of tracks
 // where the name, artist or album contains the query string (case insensitive)
@@ -156,4 +125,4 @@ console.log(library["playlists"]);
 
 var printSearchResults = function(query) {
 
-}
+};
